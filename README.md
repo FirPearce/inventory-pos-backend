@@ -1,1 +1,0 @@
-# inventory-pos-backend
