@@ -16,8 +16,6 @@ interface ErrorResponse {
     error: string;
     details?: string[] | Record<string, string[]>;
   };
-  timestamp: string;
-  path: string;
 }
 
 @Catch()
@@ -99,8 +97,6 @@ export class HttpExceptionFilter implements ExceptionFilter {
         error: errorName,
         ...(details && { details }),
       },
-      timestamp: new Date().toISOString(),
-      path: request.url,
     };
 
     response.status(status).json(errorResponse);
