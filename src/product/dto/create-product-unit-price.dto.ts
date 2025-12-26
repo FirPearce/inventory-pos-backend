@@ -37,9 +37,9 @@ export class CreateProductUnitPriceDto {
     example: '01.01.2024',
     type: String,
   })
-  @TransformDateFromString()
-  @IsDateString()
   @IsOptional()
+  @IsDateString()
+  @TransformDateFromString()
   startDate?: Date | null;
 
   @ApiPropertyOptional({
@@ -47,8 +47,8 @@ export class CreateProductUnitPriceDto {
     example: '31.12.2024',
     type: String,
   })
-  @TransformDateFromString()
-  @IsDateString()
   @IsOptional()
+  @IsDateString()
+  @TransformDateFromString()
   endDate?: Date | null;
 }

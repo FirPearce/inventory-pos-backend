@@ -20,10 +20,15 @@ export function IsDateString(validationOptions?: ValidationOptions) {
           if (value === null || value === undefined || value === '') {
             return true; // Let @IsOptional handle null/undefined
           }
-          if (typeof value !== 'string') {
-            return false;
+          // If value is already a Date object (after transform), it's valid
+          if (value instanceof Date && !isNaN(value.getTime())) {
+            return true;
           }
-          return isValidDateString(value);
+          // If value is still a string (before transform), validate the format
+          if (typeof value === 'string') {
+            return isValidDateString(value);
+          }
+          return false;
         },
         defaultMessage(args: ValidationArguments) {
           return `${args.property} must be a valid date in dd.mm.yyyy format`;

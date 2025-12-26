@@ -43,9 +43,9 @@ export class UpdateProductUnitPriceDto {
     type: String,
   })
   @ValidateIf((o: UpdateProductUnitPriceDto) => o.startDate !== undefined)
-  @TransformDateFromString()
-  @IsDateString()
   @IsOptional()
+  @IsDateString()
+  @TransformDateFromString()
   startDate?: Date | null;
 
   @ApiPropertyOptional({
@@ -54,8 +54,8 @@ export class UpdateProductUnitPriceDto {
     type: String,
   })
   @ValidateIf((o: UpdateProductUnitPriceDto) => o.endDate !== undefined)
-  @TransformDateFromString()
-  @IsDateString()
   @IsOptional()
+  @IsDateString()
+  @TransformDateFromString()
   endDate?: Date | null;
 }
