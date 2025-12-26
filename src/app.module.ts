@@ -9,6 +9,10 @@ import { CustomerModule } from './customer/customer.module';
 import { Customer } from './customer/entities/customer.entity';
 import { SupplierModule } from './supplier/supplier.module';
 import { Supplier } from './supplier/entities/supplier.entity';
+import { ProductModule } from './product/product.module';
+import { Product } from './product/entities/product.entity';
+import { ProductUnit } from './product/entities/product_unit.entity';
+import { ProductUnitPrice } from './product/entities/product_unit_price.entity';
 
 @Module({
   imports: [
@@ -25,7 +29,14 @@ import { Supplier } from './supplier/entities/supplier.entity';
         username: configService.get<string>('DB_USERNAME', 'postgres'),
         password: configService.get<string>('DB_PASSWORD', 'postgres'),
         database: configService.get<string>('DB_NAME', 'inventory_pos'),
-        entities: [Category, Customer, Supplier],
+        entities: [
+          Category,
+          Customer,
+          Supplier,
+          Product,
+          ProductUnit,
+          ProductUnitPrice,
+        ],
         migrations: ['dist/database/migrations/*.js'],
         synchronize:
           configService.get<string>('DB_SYNCHRONIZE', 'false') === 'true' ||
@@ -44,6 +55,7 @@ import { Supplier } from './supplier/entities/supplier.entity';
     CategoryModule,
     CustomerModule,
     SupplierModule,
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],
