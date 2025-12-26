@@ -5,6 +5,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CategoryModule } from './category/category.module';
 import { Category } from './category/entities/category.entity';
+import { CustomerModule } from './customer/customer.module';
+import { Customer } from './customer/entities/customer.entity';
 
 @Module({
   imports: [
@@ -21,7 +23,7 @@ import { Category } from './category/entities/category.entity';
         username: configService.get<string>('DB_USERNAME', 'postgres'),
         password: configService.get<string>('DB_PASSWORD', 'postgres'),
         database: configService.get<string>('DB_NAME', 'inventory_pos'),
-        entities: [Category],
+        entities: [Category, Customer],
         migrations: ['dist/database/migrations/*.js'],
         synchronize:
           configService.get<string>('DB_SYNCHRONIZE', 'false') === 'true' ||
@@ -38,6 +40,7 @@ import { Category } from './category/entities/category.entity';
       inject: [ConfigService],
     }),
     CategoryModule,
+    CustomerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

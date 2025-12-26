@@ -16,7 +16,7 @@ import { ApiTags, ApiOperation, ApiParam, ApiQuery } from '@nestjs/swagger';
 import { CategoryService } from '../services/category.service';
 import { CreateCategoryDto } from '../dto/create-category.dto';
 import { UpdateCategoryDto } from '../dto/update-category.dto';
-import { PaginationQueryDto } from '../dto/pagination-query.dto';
+import { PaginationQueryDto } from '../../common/dto/pagination-query.dto';
 import { CategoryResponseDto } from '../dto/category-response.dto';
 import {
   ApiStandardResponse,
