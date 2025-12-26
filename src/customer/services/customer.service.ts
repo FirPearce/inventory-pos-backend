@@ -108,4 +108,3 @@ export class CustomerService {
     await this.customerRepository.softDelete(customer);
   }
 }
-
