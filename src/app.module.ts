@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { CategoryModule } from './category/category.module';
 import { Category } from './category/entities/category.entity';
 import { CustomerModule } from './customer/customer.module';
@@ -67,7 +65,7 @@ import { PurchaseItem } from './purchase/entities/purchase-item.entity';
     StockModule,
     PurchaseModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
