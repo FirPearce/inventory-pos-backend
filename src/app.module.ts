@@ -15,6 +15,9 @@ import { ProductUnit } from './product/entities/product_unit.entity';
 import { ProductUnitPrice } from './product/entities/product_unit_price.entity';
 import { StockModule } from './stock/stock.module';
 import { Stock } from './stock/entities/stock.entity';
+import { PurchaseModule } from './purchase/purchase.module';
+import { Purchase } from './purchase/entities/purchase.entity';
+import { PurchaseItem } from './purchase/entities/purchase-item.entity';
 
 @Module({
   imports: [
@@ -39,6 +42,8 @@ import { Stock } from './stock/entities/stock.entity';
           ProductUnit,
           ProductUnitPrice,
           Stock,
+          Purchase,
+          PurchaseItem,
         ],
         migrations: ['dist/database/migrations/*.js'],
         synchronize:
@@ -60,6 +65,7 @@ import { Stock } from './stock/entities/stock.entity';
     SupplierModule,
     ProductModule,
     StockModule,
+    PurchaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
