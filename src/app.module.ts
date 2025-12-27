@@ -13,6 +13,8 @@ import { ProductModule } from './product/product.module';
 import { Product } from './product/entities/product.entity';
 import { ProductUnit } from './product/entities/product_unit.entity';
 import { ProductUnitPrice } from './product/entities/product_unit_price.entity';
+import { StockModule } from './stock/stock.module';
+import { Stock } from './stock/entities/stock.entity';
 
 @Module({
   imports: [
@@ -36,6 +38,7 @@ import { ProductUnitPrice } from './product/entities/product_unit_price.entity';
           Product,
           ProductUnit,
           ProductUnitPrice,
+          Stock,
         ],
         migrations: ['dist/database/migrations/*.js'],
         synchronize:
@@ -56,6 +59,7 @@ import { ProductUnitPrice } from './product/entities/product_unit_price.entity';
     CustomerModule,
     SupplierModule,
     ProductModule,
+    StockModule,
   ],
   controllers: [AppController],
   providers: [AppService],
